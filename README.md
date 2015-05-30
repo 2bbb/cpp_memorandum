@@ -9,10 +9,12 @@
 
 ## TOC
 
-### [map? unordered_map?](md/map_or_unordered_map.md)
+### [map? unordered_map?](md/map_or_unordered_map.md) 2015/05/30
 
 何かと便利な `map` と最近C++11から入ったっていう `unordered_map` についてちょこっと.
 
-### [std::array](md/std_array.md)
+### [std::array](md/std_array.md) 2015/05/30
 
 templateやってると配列の頭のポインタを返しちゃうと失われる情報がなかなか辛いわけですが, C++11から導入された `std:array` の美味しさを.
+
+### type_traits (予定)
