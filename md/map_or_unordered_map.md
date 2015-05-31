@@ -31,6 +31,25 @@ v.insert(std::make_pair(1, "bar")); // NG
 
 unorderedなことが問題になるのはイテレータで回すときくらいですかね. イテレータ使うときでも僕は別にそこがソートされてるってことを意識して使った事は無いのでunorderedで全然良いですね.
 
+## 実際測ってみた
+
+単位はμsec.
+(thx: @satoruhiga)
+
+```
+speed_calc_test
+size = 100
+map           469686
+unordered_map 209103
+size = 1000
+map           794614
+unordered_map 240040
+size = 10000
+map           1048245
+unordered_map 241499
+```
+
+
 ## 結論
 
 キーが `string` とか数値のときは積極的に `unordered_map` 使っていきたい.

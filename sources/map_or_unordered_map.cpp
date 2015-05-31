@@ -1,9 +1,70 @@
 #include <iostream>
 #include <string>
+#include <sstream>
 #include <map>
 #include <unordered_map>
-
+#include <vector>
+ 
+#include <chrono>
+ 
+struct StopWatch {
+	decltype(std::chrono::system_clock::now()) _start, _end;
+	void start() {
+		_start = std::chrono::system_clock::now();
+	}
+	template <typename T = std::chrono::microseconds>
+	T stop() {
+		_end = std::chrono::system_clock::now();
+		return std::chrono::duration_cast<T>(_end - _start);
+	}
+};
+ 
 using namespace std;
+ 
+string toString(int i) {
+	stringstream s;
+	s << i;
+	return s.str();
+}
+ 
+void calc_speed(size_t size) {
+	map<string, int> m;
+	unordered_map<string, int> um;
+	vector<string> s;
+	for(int i = 0; i < size; i++) {
+		s.push_back(toString(i));
+		m.insert(make_pair(s[i], i));
+		um.insert(make_pair(s[i], i));
+	}
+	int n;
+	StopWatch w;
+	{
+		w.start();
+		for(size_t i = 0; i < 1000000; i++) {
+			n = m[s[i % s.size()]];
+		}
+		cout << "map           " << w.stop().count() << endl;
+	}
+	{
+		w.start();
+		for(size_t i = 0; i < 1000000; i++) {
+			n = um[s[i % s.size()]];
+		}
+		cout << "unordered_map " << w.stop().count() << endl;
+	}
+}
+ 
+void speed_calc_test() {
+	cout << endl;
+	cout << "speed_calc_test" << endl;
+	
+	cout << "size = " << 100 << endl;
+	calc_speed(100);
+	cout << "size = " << 1000 << endl;
+	calc_speed(1000);
+	cout << "size = " << 10000 << endl;
+	calc_speed(10000);
+}
 
 int main(int argc, char *argv[]) {
 	char const *names[] = {
@@ -44,6 +105,8 @@ int main(int argc, char *argv[]) {
 	for(const auto &kv : um) {
 		cout << kv.first << ", " << kv.second << endl;
 	}
+	
+	speed_calc_test();
 	
 	return EXIT_SUCCESS;
 }
