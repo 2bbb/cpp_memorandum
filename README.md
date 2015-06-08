@@ -21,5 +21,8 @@ templateやってると配列の頭のポインタを返しちゃうと失われ
 
 ### [type_traits](md/cool_type_traits.md) 2015/06/08
 
-書きたかった割に雑です.
+書いてみたかった割に雑. type_traitsって名前だけでも覚えて帰ってください.
 
+### [std::vectorの比較](md/compare_vector.md) 2015/06/08
+
+ほんとにメモ程度. `const`最高.
