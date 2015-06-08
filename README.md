@@ -26,3 +26,7 @@ templateやってると配列の頭のポインタを返しちゃうと失われ
 ### [std::vectorの比較](md/compare_vector.md) 2015/06/08
 
 ほんとにメモ程度. `const`最高.
+
+### [Expression SFINAE](md/expression_sfinae.md) 2015/06/08
+
+ほんとにメモ程度. Visual Studioさんってば最低.
