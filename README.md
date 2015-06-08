@@ -19,4 +19,7 @@
 
 templateやってると配列の頭のポインタを返しちゃうと失われる情報がなかなか辛いわけですが, C++11から導入された `std:array` の美味しさを.
 
-### type_traits (予定)
+### [type_traits](md/cool_type_traits.md) 2015/06/08
+
+書きたかった割に雑です.
+
